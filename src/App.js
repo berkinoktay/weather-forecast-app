@@ -7,9 +7,12 @@ function App() {
   const [currentPosition, setCurrentPosition] = useState({});
   const [status, setStatus] = useState({});
   const [weather, setWeather] = useState({});
-  const [hasData, setHasData] = useState(false);
+  const [hasData, setHasData] = useState(null);
+  const queryParams = {
+    city: `?q=${city}`,
+    latlon: `?lat=${currentPosition.lat}&lon=${currentPosition.lon}`,
+  };
   const getWeatherData = (lat, lon) => {
-    console.log(lat, lon);
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&lang=tr&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
@@ -29,16 +32,24 @@ function App() {
           },
           daily: res.data.daily,
         }));
-        setStatus({});
         setHasData(true);
       });
   };
-
   useEffect(() => {
-    if (city !== '') {
+    if (!hasData) {
+      setCity('');
+      setWeather({});
+      setStatus({});
+      setCurrentPosition({});
+    }
+  }, [hasData]);
+  useEffect(() => {
+    if (city !== '' || (currentPosition.lat && currentPosition.lon)) {
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+          `https://api.openweathermap.org/data/2.5/forecast${
+            city ? queryParams.city : queryParams.latlon
+          }&cnt=8&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
         )
         .then((res) => {
           setWeather({
@@ -47,7 +58,6 @@ function App() {
             hourlyList: res.data.list,
           });
           getWeatherData(res.data.city.coord.lat, res.data.city.coord.lon);
-          setCity('');
         })
         .catch(() => {
           setStatus({
@@ -57,9 +67,6 @@ function App() {
           setCity('');
         });
     }
-    currentPosition.lat &&
-      currentPosition.lon &&
-      getWeatherData(currentPosition.lat, currentPosition.lon);
   }, [city, currentPosition]);
   return (
     <>
