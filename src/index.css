@@ -1,13 +1,143 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+}
+html,
+body {
+  height: 100%;
+}
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #132c33;
 }
+#root {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.locationForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 30%;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.locationForm h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #29aecb;
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
+  text-align: center;
+}
+.locationForm .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+}
+.locationForm .container .status {
+  font-size: 1.2rem;
+  color: #29aecb;
+  width: 100%;
+  padding: 10px;
+  background: #29adcb48;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #29adcb72;
+}
+.locationForm .container .status.error {
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  background: #f8d7da;
+}
+.locationForm .container form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  overflow: hidden;
+}
+.locationForm .container form input {
+  width: 100%;
+  padding: 0px 60px 0px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  border-radius: 5px;
+  font-size: 1rem;
+  height: 55px;
+}
+.locationForm .container form input:focus {
+  border: 2px solid #29aecb;
+}
+.locationForm .container form button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  width: 50px;
+  height: 100%;
+  border: none;
+  background-color: #29aecb;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+.locationForm .container form button:hover {
+  background-color: #51c4d3;
+}
+.locationForm .container .seperator {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 30px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.locationForm .container .seperator::before {
+  content: 'ya da';
+  font-size: 1.2rem;
+  padding: 0px 10px;
+  background-color: #fff;
+  color: #ccc;
+}
+.locationForm .container .getLocation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0;
+  width: 100%;
+  background-color: #29aecb;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  font-size: 1.2rem;
+}
+.locationForm .container .getLocation:hover {
+  background-color: #51c4d3;
 }
