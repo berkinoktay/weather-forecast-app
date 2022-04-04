@@ -152,9 +152,11 @@ function Weather({ weather, setHasData }) {
                 </div>
                 <div>
                   <img
-                    src={require(`../icons/uv-index-${Math.round(
-                      weather.daily[0].uvi
-                    )}.svg`)}
+                    src={require(`../icons/uv-index-${
+                      weather.daily[0].uvi >= 13
+                        ? '0'
+                        : Math.round(weather.daily[0].uvi)
+                    }.svg`)}
                     alt="Nem Oranı"
                   />
                   <span>

@@ -68,9 +68,10 @@ function App() {
             text: `${city} adlı şehir bulunamadı!`,
           });
           setCity('');
+          console.clear();
         });
     }
-  }, [city, currentPosition]);
+  }, [city, currentPosition, queryParams.city, queryParams.latlon]);
   return (
     <>
       {!hasData && (
