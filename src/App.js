@@ -21,6 +21,7 @@ function App() {
         setWeather((prevState) => ({
           ...prevState,
           current: {
+            dt: res.data.current.dt,
             temp: res.data.current.temp,
             feels_like: res.data.current.feels_like,
             humidity: res.data.current.humidity,
@@ -49,7 +50,9 @@ function App() {
         .get(
           `https://api.openweathermap.org/data/2.5/forecast${
             city ? queryParams.city : queryParams.latlon
-          }&cnt=8&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+          }&cnt=8&lang=tr&units=metric&appid=${
+            process.env.REACT_APP_WEATHER_API_KEY
+          }`
         )
         .then((res) => {
           setWeather({
