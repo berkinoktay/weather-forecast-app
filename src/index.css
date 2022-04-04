@@ -191,6 +191,7 @@ body {
   color: #2389a0;
   text-align: center;
   max-width: 240px;
+  text-transform: capitalize;
 }
 .container .weather main .sidebar .currentWeather {
   text-align: center;
@@ -203,10 +204,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.container .weather main .sidebar .currentWeatherIcon img {
   width: 80%;
 }
+
 .container .weather main .sidebar .currentTemp {
   display: flex;
   align-items: flex-start;

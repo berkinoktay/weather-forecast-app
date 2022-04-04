@@ -13,7 +13,6 @@ import Wind from '../icons/wind.svg';
 import Compass from '../icons/compass.svg';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 function Weather({ weather, setHasData }) {
-  console.log(weather);
   const convertHours = (dt) => {
     return new Date(dt * 1000).toLocaleTimeString('tr', {
       hour: '2-digit',
