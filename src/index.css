@@ -26,7 +26,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   max-width: 450px;
   background-color: #fff;
   border-radius: 10px;
@@ -388,6 +388,9 @@ body {
   }
 }
 @media screen and (max-width: 425px) {
+  .container {
+    padding: 3rem 1rem;
+  }
   .container .weather main .info .weatherForecast {
     grid-template-columns: repeat(2, 1fr);
   }
