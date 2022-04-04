@@ -10,7 +10,7 @@ function Form({ setCity, setCurrentPosition, status, setStatus }) {
       code: 'pending',
       text: 'Hava durumu bilgisi alınıyor...',
     });
-    setCity(search);
+    setCity(search.toLocaleLowerCase());
   };
   const getLocation = () => {
     if (navigator.geolocation) {

@@ -206,7 +206,9 @@ body {
   justify-content: center;
   width: 80%;
 }
-
+.container .weather main .sidebar .currentWeatherIcon img {
+  width: 100%;
+}
 .container .weather main .sidebar .currentTemp {
   display: flex;
   align-items: flex-start;
